@@ -1,0 +1,296 @@
+/* Universal Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    list-style: none;
+}
+
+:root {
+    --text-color: #000000;
+    --hover-color: #3d11dd;
+    --large-font-size: 22px;
+    --p-font-size: 15px;
+    --small-font-size: 13px;
+    --small-background-color: #b7c2d3;
+    --big-background-color: #e4edf4;  
+}
+
+
+/*style for header and navigation menu*/
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 22px 15%;
+    font-size: 29px;
+    border-bottom: 1px solid transparent;
+    color: var(--text-color);
+    background-color: rgba(128, 128, 128, 0.261);
+}
+
+.navmenu {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+.navmenu a {
+    color: var(--text-color);
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0 25px;
+}
+.navmenu a:hover {
+    color: var(--hover-color);
+}
+
+
+/* Style for intro section */
+section {
+    padding: 160px 15% 120px;
+}
+
+.intro {
+    position: relative;
+    height: 90vh;
+    max-width: 100%;
+    background-image: url(IMG_3542.JPG);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.intro-text {
+    align-items: center;
+}
+.intro-text h1 {
+    font-style: italic;
+    font-size: 30px;
+}
+
+.intro-text p {
+    font-size: var(--large-font-size);
+}
+
+/* style for about section */
+.about  {
+    max-width: 100%;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.about h2 {
+    padding-left: 80px; 
+    padding-top: 30px;
+    font-size: var(--large-font-size);
+}
+
+.about p {
+    font-size: var(--p-font-size); 
+    padding-left: 80px; 
+    padding-top: 5px; 
+    padding-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: -8.5rem;
+    margin-right: -8.5rem;
+    padding: 70px 16% 30px;
+  }
+  
+.justify-center {
+    justify-content: center;
+  }
+  
+  
+  /* using a mobile-first approach, set base column width to be 100% and we'll update it using media queries for larger screen sizes */
+.skill-column {
+    flex: 1 0 100%;
+    padding: .5rem;
+    /* when the screen resizes, make it so our columns don't jump in size */
+    transition: flex-basis 500ms linear;
+    margin-bottom: 2.5rem;
+  }
+  
+  /* make each code card a flexbox column to align and justify content within it */
+  .code-skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100%;
+    padding: .5rem;
+    color: var(--heliotrope);
+  
+    /* outline is like border, but on the outside of the box instead of inside */
+    outline: 2px dashed var(--gin);
+    outline-offset: -2px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .code-skill .skill-header {
+    /* use position and negative margins to move title of card over the card's outline and create an overlap effect */
+    position: relative;
+    margin: -4rem 0 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--small-background-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    font-size: var(--small-font-size);
+  }
+  
+
+  
+  /* each card's code block grows to the height of the largest code block on the page, making each card even in height */
+  .code-skill .code-list {
+    flex-grow: 1;
+    font-size: var(--small-font-size);
+  }
+
+  .code-list li {
+    list-style-type: square;
+  }
+  
+  .code-skill pre {
+    /* set styles to make it so code wraps in <pre> instead of overflowing */
+    white-space: pre-wrap;
+    overflow: auto;
+    tab-size: 4;
+    padding: .2rem .8rem;
+    color: var(--text-color);
+    border-radius: 8px;
+    /* use linear-gradient() function to create a fading background  */
+    background-image: linear-gradient(
+        #b7c2d3 0%, 
+        #e4edf4 100%);
+    display: flex;
+    align-items: normal;
+    line-height: 1.5;
+  }
+  
+  
+  /* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
+  @media screen and (min-width: 768px) {
+    /* on tablets, set columns to only be 50% of the width and not grow */
+    .skill-column {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  
+    /* select the last child to grow to full width if it has space to grow */
+    .skill-column:last-child {
+      flex-grow: 1;
+    }
+  }
+  
+  /* media query for larger screens */
+  @media screen and (min-width: 992px) {
+  
+    .skill-column {
+      flex: 0 0 33.333%;
+      max-width: 33.333%;
+    }
+  }
+
+/* style for portfolio section */
+.portfolio  {
+    max-width: 100%;
+    padding-top: 0px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.portfolio h4 {
+    padding-left: 80px; 
+    padding-top: 30px;
+    font-size: var(--large-font-size);
+}
+
+.portfolio p {
+    font-size: var(--p-font-size); 
+    padding-left: 80px; 
+    padding-top: 5px; 
+    padding-bottom: 30px;
+}
+
+figure {
+    max-width: 100%;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+
+}
+figure img {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
