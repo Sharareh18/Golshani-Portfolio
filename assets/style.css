@@ -34,7 +34,6 @@ header {
     font-size: 29px;
     border-bottom: 1px solid transparent;
     color: var(--text-color);
-    background-color: rgba(128, 128, 128, 0.261);
 }
 
 .navmenu {
@@ -42,12 +41,14 @@ header {
     flex-wrap: wrap;
     margin: auto;
 }
+
 .navmenu a {
     color: var(--text-color);
     font-size: 17px;
     font-weight: 500;
     margin: 0 25px;
 }
+
 .navmenu a:hover {
     color: var(--hover-color);
 }
@@ -75,6 +76,7 @@ section {
 .intro-text {
     align-items: center;
 }
+
 .intro-text h1 {
     font-style: italic;
     font-size: 30px;
@@ -90,17 +92,19 @@ section {
     padding-top: 50px;
     padding-left: 100px;
     padding-right: 100px;
-}
+}   
 
 .about h2 {
-    padding-left: 80px; 
+    padding-left: 130px;
+    padding-right: 130px; 
     padding-top: 30px;
     font-size: var(--large-font-size);
 }
 
 .about p {
     font-size: var(--p-font-size); 
-    padding-left: 80px; 
+    padding-left: 130px; 
+    padding-right: 130px;
     padding-top: 5px; 
     padding-bottom: 30px;
 }
@@ -119,32 +123,23 @@ section {
   }
   
   
-  /* using a mobile-first approach, set base column width to be 100% and we'll update it using media queries for larger screen sizes */
-.skill-column {
+.card-column {
     flex: 1 0 100%;
     padding: .5rem;
-    /* when the screen resizes, make it so our columns don't jump in size */
     transition: flex-basis 500ms linear;
     margin-bottom: 2.5rem;
   }
   
-  /* make each code card a flexbox column to align and justify content within it */
-  .code-skill {
+.code-card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     min-height: 100%;
     padding: .5rem;
-    color: var(--heliotrope);
-  
-    /* outline is like border, but on the outside of the box instead of inside */
-    outline: 2px dashed var(--gin);
-    outline-offset: -2px;
-    transition: all 0.5s ease-in-out;
+    align-items: stretch;
   }
   
-  .code-skill .skill-header {
-    /* use position and negative margins to move title of card over the card's outline and create an overlap effect */
+.code-card .card-header {
     position: relative;
     margin: -4rem 0 0.5rem 0;
     padding: 0.5rem 1rem;
@@ -155,18 +150,16 @@ section {
   }
   
 
-  
-  /* each card's code block grows to the height of the largest code block on the page, making each card even in height */
-  .code-skill .code-list {
+.code-card .code-block {
     flex-grow: 1;
     font-size: var(--small-font-size);
   }
 
-  .code-list li {
+.code-card pre li {
     list-style-type: square;
   }
   
-  .code-skill pre {
+.code-card pre {
     /* set styles to make it so code wraps in <pre> instead of overflowing */
     white-space: pre-wrap;
     overflow: auto;
@@ -180,28 +173,24 @@ section {
         #e4edf4 100%);
     display: flex;
     align-items: normal;
-    line-height: 1.5;
+    line-height: 1.3;
   }
   
-  
-  /* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
-  @media screen and (min-width: 768px) {
-    /* on tablets, set columns to only be 50% of the width and not grow */
-    .skill-column {
+ @media screen and (min-width: 768px) {
+    .card-column {
       flex: 0 0 50%;
       max-width: 50%;
     }
-  
-    /* select the last child to grow to full width if it has space to grow */
-    .skill-column:last-child {
+    .card-column:last-child {
       flex-grow: 1;
     }
   }
   
-  /* media query for larger screens */
   @media screen and (min-width: 992px) {
-  
-    .skill-column {
+    header {
+        width: 100%;
+      }
+    .card-column {
       flex: 0 0 33.333%;
       max-width: 33.333%;
     }
@@ -216,14 +205,16 @@ section {
 }
 
 .portfolio h4 {
-    padding-left: 80px; 
+    padding-left: 130px;
+    padding-right: 130px; 
     padding-top: 30px;
     font-size: var(--large-font-size);
 }
 
 .portfolio p {
     font-size: var(--p-font-size); 
-    padding-left: 80px; 
+    padding-left: 130px;
+    padding-right: 130px; 
     padding-top: 5px; 
     padding-bottom: 30px;
 }
@@ -248,32 +239,29 @@ figure img {
     align-items: center;
 }
 
+figcaption {
+    text-align: center;
+}
+
 div.gallery {
+    margin: 5px;
     border: 1px solid #ccc;
+    float:left;
+    width: 400px;
+    height: 300px;
   }
-  
-  div.gallery:hover {
-    border: 1px solid #777;
-  }
-  
-  div.gallery img {
+   
+div.gallery img {
     width: 100%;
     height: auto;
   }
   
-  div.desc {
-    padding: 15px;
-    text-align: center;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
   .responsive {
-    padding: 0 6px;
-    float: left;
-    width: 24.99999%;
+    padding: 40px 6px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   
   @media only screen and (max-width: 700px) {
@@ -289,8 +277,27 @@ div.gallery {
     }
   }
   
-  .clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+ /* Style for Contact Section */
+ .contact  {
+    max-width: 100%;
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    color: var(--text-color);
+}   
+
+.contact h4 {
+    padding-left: 130px;
+    padding-right: 130px; 
+    padding-top: 30px;
+    font-size: var(--large-font-size);
+    
+}
+
+.contact p {
+    font-size: var(--p-font-size); 
+    padding-left: 130px; 
+    padding-right: 130px;
+    padding-top: 5px; 
+    padding-bottom: 30px;
+}
