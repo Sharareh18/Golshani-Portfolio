@@ -21,18 +21,13 @@
 
 /*style for header and navigation menu*/
 header {
-    position: fixed;
     width: 100%;
-    top: 0;
-    right: 0;
-    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
     padding: 22px 15%;
     font-size: 29px;
-    border-bottom: 1px solid transparent;
     color: var(--text-color);
 }
 
@@ -40,12 +35,14 @@ header {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: center;
 }
 
 .navmenu a {
     color: var(--text-color);
     font-size: 17px;
-    font-weight: 500;
     margin: 0 25px;
 }
 
@@ -54,20 +51,19 @@ header {
 }
 
 
-/* Style for intro section */
+/* Style for sections */
 section {
-    padding: 160px 15% 120px;
+    padding: 100px 12% 100px;
 }
 
+/* Style for intro section */
 .intro {
     position: relative;
     height: 90vh;
     max-width: 100%;
     background-image: url(IMG_3542.JPG);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
+    background-position: center;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -89,46 +85,30 @@ section {
 /* style for about section */
 .about  {
     max-width: 100%;
-    padding-top: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
 }   
 
-.about h2 {
-    padding-left: 130px;
-    padding-right: 130px; 
-    padding-top: 30px;
+.about h2 { 
     font-size: var(--large-font-size);
 }
 
 .about p {
     font-size: var(--p-font-size); 
-    padding-left: 130px; 
-    padding-right: 130px;
-    padding-top: 5px; 
-    padding-bottom: 30px;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    margin-left: -8.5rem;
-    margin-right: -8.5rem;
-    padding: 70px 16% 30px;
-  }
+}
   
 .justify-center {
     justify-content: center;
-  }
-  
-  
+}
+   
 .card-column {
     flex: 1 0 100%;
-    padding: .5rem;
-    transition: flex-basis 500ms linear;
-    margin-bottom: 2.5rem;
-  }
+    padding: 3.5rem;
+}
   
 .code-card {
     display: flex;
@@ -137,7 +117,7 @@ section {
     min-height: 100%;
     padding: .5rem;
     align-items: stretch;
-  }
+}
   
 .code-card .card-header {
     position: relative;
@@ -147,76 +127,75 @@ section {
     color: var(--text-color);
     border-radius: 8px;
     font-size: var(--small-font-size);
-  }
+}
   
 
 .code-card .code-block {
     flex-grow: 1;
     font-size: var(--small-font-size);
-  }
+}
 
 .code-card pre li {
     list-style-type: square;
-  }
+}
   
 .code-card pre {
-    /* set styles to make it so code wraps in <pre> instead of overflowing */
     white-space: pre-wrap;
     overflow: auto;
     tab-size: 4;
     padding: .2rem .8rem;
     color: var(--text-color);
     border-radius: 8px;
-    /* use linear-gradient() function to create a fading background  */
     background-image: linear-gradient(
         #b7c2d3 0%, 
         #e4edf4 100%);
     display: flex;
     align-items: normal;
     line-height: 1.3;
-  }
+}
   
- @media screen and (min-width: 768px) {
-    .card-column {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-    .card-column:last-child {
-      flex-grow: 1;
-    }
+
+@media screen and (max-width: 1700px) {
+  .card-column {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
+} 
   
-  @media screen and (min-width: 992px) {
-    header {
-        width: 100%;
-      }
-    .card-column {
-      flex: 0 0 33.333%;
-      max-width: 33.333%;
-    }
+@media screen and (min-width: 768px) {
+  .card-column {
+    flex: 0 0 50%;
+    max-width: 50%;
   }
+  .card-column:last-child {
+    flex-grow: 1;
+  }
+}
+  
+@media screen and (min-width: 992px) {
+  header {
+    width: 100%;
+  }
+  .card-column {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+}
+ 
 
 /* style for portfolio section */
 .portfolio  {
     max-width: 100%;
     padding-top: 0px;
-    padding-left: 100px;
-    padding-right: 100px;
+   
 }
 
 .portfolio h4 {
-    padding-left: 130px;
-    padding-right: 130px; 
-    padding-top: 30px;
     font-size: var(--large-font-size);
 }
 
 .portfolio p {
     font-size: var(--p-font-size); 
-    padding-left: 130px;
-    padding-right: 130px; 
-    padding-top: 5px; 
-    padding-bottom: 30px;
 }
 
 figure {
@@ -249,12 +228,12 @@ div.gallery {
     float:left;
     width: 400px;
     height: 300px;
-  }
+}
    
 div.gallery img {
     width: 100%;
     height: auto;
-  }
+}
   
   .responsive {
     padding: 40px 6px;
@@ -262,42 +241,32 @@ div.gallery img {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
+}
   
-  @media only screen and (max-width: 700px) {
-    .responsive {
-      width: 49.99999%;
-      margin: 6px 0;
-    }
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
   }
+}
   
-  @media only screen and (max-width: 500px) {
-    .responsive {
-      width: 100%;
-    }
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
   }
+}
   
  /* Style for Contact Section */
  .contact  {
     max-width: 100%;
-    padding-top: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
     color: var(--text-color);
 }   
 
 .contact h4 {
-    padding-left: 130px;
-    padding-right: 130px; 
-    padding-top: 30px;
     font-size: var(--large-font-size);
     
 }
 
 .contact p {
     font-size: var(--p-font-size); 
-    padding-left: 130px; 
-    padding-right: 130px;
-    padding-top: 5px; 
-    padding-bottom: 30px;
 }
